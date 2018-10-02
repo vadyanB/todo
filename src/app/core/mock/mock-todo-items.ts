@@ -1,4 +1,4 @@
-import { TodoItem } from './models/todo-item';
+import { TodoItem } from '../models/todo-item';
 
 export const TODO_ITEMS: TodoItem[] = [
   { id: 1, title: 'wash car', complete: true },
