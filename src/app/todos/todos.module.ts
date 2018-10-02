@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TodosRoutingModule } from './todos-routing.module';
 import { TodosComponent } from './todos.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { HeaderComponent } from './header/header.component';
   ],
   declarations: [
     TodosComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class TodosModule { }
