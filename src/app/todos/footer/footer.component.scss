@@ -14,7 +14,18 @@
   }
 
   &__index {
+
     font-size: 25px;
   }
+}
+button {
+  background-color: #FFFFFF;
+  border: 1px solid black;
+  margin-right: 10px;
+  min-width: 70px;
+  height: 25px;
+  box-shadow: 0 4px 8px rgba(99, 99, 99, 0.5);
+  cursor: pointer;
+  border-radius: 10%;
 }
 
