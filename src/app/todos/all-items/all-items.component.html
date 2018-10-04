@@ -1,3 +1,3 @@
-<p>
-  all-items works!
-</p>
+  <div *ngFor="let TodoItem of todoitems">
+    {{TodoItem.id}} - {{TodoItem.title}} - {{TodoItem.complete}}
+  </div>
