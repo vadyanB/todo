@@ -9,14 +9,15 @@ import { TodoItem } from '../../core/models/todo-item';
 })
 
 export class AllItemsComponent implements OnInit {
-  todoitems: TodoItem[];
+  todoItems: TodoItem[];
   
-  constructor(todoDataService: TodoDataService) {
-    this.todoitems = todoDataService.getAllTodos();
-    console.log(this.todoitems);
-  }
-
+  constructor(private todoDataService: TodoDataService) {  }
+  
   ngOnInit( ) {
+    this.todoItems = this.todoDataService.getAllTodos();
   }
 
 }
+
+
+

@@ -7,12 +7,12 @@ import { TodoItem } from '../models/todo-item';
 })
 export class TodoDataService {
 
-  todoitems: TodoItem[] = TODO_ITEMS;
+  todoItems: TodoItem[] = TODO_ITEMS;
   
   constructor( ) { }
   
   getAllTodos() {
-    return this.todoitems;
+    return this.todoItems;
   }
   
  
