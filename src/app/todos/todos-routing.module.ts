@@ -8,20 +8,27 @@ const routes: Routes = [
     component: TodosComponent,
     children: [
       {
-        path: 'active', loadChildren: './active-items/active-items.module#ActiveItemsModule'
-      },
-      {
-        path: 'completed', loadChildren: './completed-items/completed-items.module#CompletedItemsModule'
-      },
-      {
-        path: '', loadChildren: './all-items/all-items.module#AllItemsModule'
-      },
+        path: '', loadChildren: './items/items.module#ItemsModule'
+      }
     ]
-  },
- ];
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class TodosRoutingModule { }
+
+
+//children: [
+//  {
+//    path: '', loadChildren: './items/items.module#ItemsModule'
+//  },
+//  {
+//    path: 'active', loadChildren: './items/items.module#ItemsModule'
+//  },
+//  {
+//    path: 'completed', loadChildren: './items/items.module#ItemsModule'
+//  }
+//]

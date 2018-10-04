@@ -4,11 +4,11 @@ import { TodoItem } from '../../core/models/todo-item';
 
 @Component({
   selector: 'app-all-items',
-  templateUrl: './all-items.component.html',
-  styleUrls: ['./all-items.component.scss']
+  templateUrl: './items.component.html',
+  styleUrls: ['./items.component.scss']
 })
 
-export class AllItemsComponent implements OnInit {
+export class ItemsComponent implements OnInit {
   todoItems: TodoItem[];
   
   constructor(private todoDataService: TodoDataService) {  }
