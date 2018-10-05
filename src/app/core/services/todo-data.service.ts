@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { TODO_ITEMS } from '../mock/mock-todo-items';
 import { TodoItem } from '../models/todo-item';
 
@@ -14,5 +15,4 @@ export class TodoDataService {
   getAllTodos() {
     return this.todoItems;
   }
-  
 }

@@ -20,15 +20,3 @@ const routes: Routes = [
 })
 export class TodosRoutingModule { }
 
-
-//children: [
-//  {
-//    path: '', loadChildren: './items/items.module#ItemsModule'
-//  },
-//  {
-//    path: 'active', loadChildren: './items/items.module#ItemsModule'
-//  },
-//  {
-//    path: 'completed', loadChildren: './items/items.module#ItemsModule'
-//  }
-//]
