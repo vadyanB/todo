@@ -1,5 +1,5 @@
-import { Component, OnInit, Pipe } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, Router, Routes, Params, Data  } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute} from '@angular/router';
 import { TodoDataService } from '../../core/services/todo-data.service';
 import { TodoItem } from '../../core/models/todo-item';
 
@@ -12,20 +12,23 @@ import { TodoItem } from '../../core/models/todo-item';
 
 export class ItemsComponent implements OnInit {
   todoItems: TodoItem[];
-  
+  complete: boolean;
   
   constructor(
     private todoDataService: TodoDataService,
     private route: ActivatedRoute
- 
-  ) { }
   
+  ) {
+  
+  }
+
   ngOnInit( ) {
     this.todoItems = this.todoDataService.getAllTodos();
-    
-    console.log (this.route.snapshot.data['path']);
+    this.complete = this.route.snapshot.data['complete'];
+    //console.log (this.route.snapshot.data);
     
   }
+  
   
   
   

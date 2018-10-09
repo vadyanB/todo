@@ -5,20 +5,18 @@ import { ItemsComponent } from './items.component';
 const routes: Routes = [
   {
     path: '',
-    component: ItemsComponent,
-    data: { path : 'all'},
+    component: ItemsComponent
   },
   {
     path: 'completed',
     component: ItemsComponent,
-    data: { path : 'completed'},
+    data: { complete : true},
   },
   {
     path: 'active',
     component: ItemsComponent,
-    data: { path : 'active'},
-  },
-
+    data: { complete : false},
+  }
 ];
 
 @NgModule({
@@ -28,17 +26,3 @@ const routes: Routes = [
 export class ItemsRoutingModule { }
 
 
-
-//data: { path : 'all'},
-//children: [
-//  {
-//    path: 'active',
-//    loadChildren: './items.module#ItemsModule',
-//    data: { path : 'active'}
-//  },
-//  {
-//    path: 'completed',
-//    loadChildren: './items.module#ItemsModule',
-//    data: { path : 'completed'}
-//  }
-//]

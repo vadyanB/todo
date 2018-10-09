@@ -3,12 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { ItemsRoutingModule } from './items-routing.module';
 import { ItemsComponent } from './items.component';
+import { FilterItems } from './filter-items.pipe';
 
 @NgModule({
   imports: [
     CommonModule,
     ItemsRoutingModule
   ],
-  declarations: [ItemsComponent]
+  declarations: [
+    ItemsComponent,
+    FilterItems
+  ]
 })
-export class ItemsModule { }
+export class ItemsModule {
+
+}
