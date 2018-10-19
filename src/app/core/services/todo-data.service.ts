@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute} from '@angular/router';
 
 import { TODO_ITEMS } from '../mock/mock-todo-items';
 import { TodoItem } from '../models/todo-item';
@@ -8,17 +7,14 @@ import { TodoItem } from '../models/todo-item';
   providedIn: 'root'
 })
 export class TodoDataService {
-
+  
   todoItems: TodoItem[] = TODO_ITEMS;
+ 
   
-  constructor( ) {
-  
+  constructor() {
   }
   
-  getAllTodos() {
-    return this.todoItems;
+  deleteByItemId(id) {
+    return this.todoItems = this.todoItems.filter(item => id !== item.id);
   }
-  
-  
-  
 }

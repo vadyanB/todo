@@ -12,7 +12,7 @@ import { FilterItems } from './filter-items.pipe';
   ],
   declarations: [
     ItemsComponent,
-    FilterItems
+    FilterItems,
   ]
 })
 export class ItemsModule {

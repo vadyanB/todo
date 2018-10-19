@@ -11,28 +11,27 @@ import { TodoItem } from '../../core/models/todo-item';
 
 
 export class ItemsComponent implements OnInit {
-  todoItems: TodoItem[];
+ 
   complete: boolean;
   
   constructor(
     private todoDataService: TodoDataService,
     private route: ActivatedRoute
-  
-  ) {
-  
-  }
+    ) {}
 
   ngOnInit( ) {
-    this.todoItems = this.todoDataService.getAllTodos();
-    this.complete = this.route.snapshot.data['complete'];
-    //console.log (this.route.snapshot.data);
-    
+   this.complete = this.route.snapshot.data['complete'];
   }
   
+  deleteTodoItem(id) {
+    this.todoDataService.deleteByItemId(id);
+  }
   
-  
-  
+  get todoItems () {
+    return this.todoDataService.todoItems;
+  }
 }
+
 
 
 
