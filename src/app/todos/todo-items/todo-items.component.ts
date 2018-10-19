@@ -5,12 +5,12 @@ import { TodoItem } from '../../core/models/todo-item';
 
 @Component({
   selector: 'app-all-items',
-  templateUrl: './items.component.html',
-  styleUrls: ['./items.component.scss']
+  templateUrl: './todo-items.component.html',
+  styleUrls: ['./todo-items.component.scss']
 })
 
 
-export class ItemsComponent implements OnInit {
+export class TodoItemsComponent implements OnInit {
  
   complete: boolean;
   

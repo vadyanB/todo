@@ -1,4 +1,4 @@
-  <div *ngFor="let TodoItem of (todoItems | FilterItems: complete)">
+  <div *ngFor="let TodoItem of (todoItems | FilterTodoItems: complete)">
     {{TodoItem.id}} - {{TodoItem.title}} - {{TodoItem.complete}}
     <button (click)="deleteTodoItem(TodoItem.id)">x</button>
   </div>

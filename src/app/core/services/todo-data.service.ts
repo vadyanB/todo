@@ -9,7 +9,6 @@ import { TodoItem } from '../models/todo-item';
 export class TodoDataService {
   
   todoItems: TodoItem[] = TODO_ITEMS;
- 
   
   constructor() {
   }

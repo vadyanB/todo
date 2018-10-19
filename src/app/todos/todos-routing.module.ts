@@ -8,7 +8,7 @@ const routes: Routes = [
     component: TodosComponent,
     children: [
       {
-        path: '', loadChildren: './items/items.module#ItemsModule'
+        path: '', loadChildren: './todo-items/todo-items.module#TodoItemsModule'
       }
     ]
   }
