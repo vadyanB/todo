@@ -16,4 +16,10 @@ export class TodoDataService {
   deleteByItemId(id) {
     return this.todoItems = this.todoItems.filter(item => id !== item.id);
   }
+  
+  toggleTodoItemComplete(id) {
+  console.log (this.todoItems);
+    //return this.todoItems[id - 1].complete = (this.todoItems[id - 1].complete === true ) ? this.todoItems[id - 1].complete = false : this.todoItems[id - 1].complete = false;
+    
+  }
 }

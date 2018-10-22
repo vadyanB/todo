@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { TodoItemsRoutingModule } from './todo-items-routing.module';
 import { TodoItemsComponent } from './todo-items.component';
 import { FilterTodoItems } from './filter-todo-items.pipe';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
-    TodoItemsRoutingModule
+    TodoItemsRoutingModule,
+    FormsModule
   ],
   declarations: [
     TodoItemsComponent,
