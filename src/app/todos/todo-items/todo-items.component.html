@@ -1,7 +1,4 @@
-  <div *ngFor="let TodoItem of (todoItems | FilterTodoItems: complete)">
-    <input (click)="toggleTodoItemComplete(TodoItem.id)" type="checkbox" [(ngModel)]="TodoItem.complete" [checked]="todoItems"> - {{TodoItem.id}} - {{TodoItem.title}} -  {{TodoItem.complete}}
-    <button (click)="deleteTodoItem(TodoItem.id)">x</button>
+  <div *ngFor="let todoItem of (todoItems | FilterTodoItems: complete)">
+    <input (click)="toggleTodoItemComplete(todoItem.id)" type="checkbox" [checked]="todoItem.complete"> - {{todoItem.id}} - {{todoItem.title}} -  {{todoItem.complete}}
+    <button (click)="deleteTodoItem(todoItem.id)">x</button>
   </div>
-
-
-
