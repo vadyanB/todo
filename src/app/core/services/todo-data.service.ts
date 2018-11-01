@@ -17,7 +17,6 @@ export class TodoDataService {
     return this.todoItems = this.todoItems.filter(item => id !== item.id);
   }
   
-  
   toggleTodoItemComplete(id) {
   
     return this.todoItems = this.todoItems.map(item => {

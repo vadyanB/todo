@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import { TodoDataService } from '../../core/services/todo-data.service';
-import { TodoItem } from '../../core/models/todo-item';
-//
+
 @Component({
   selector: 'app-all-items',
   templateUrl: './todo-items.component.html',
@@ -12,17 +11,14 @@ import { TodoItem } from '../../core/models/todo-item';
 
 export class TodoItemsComponent implements OnInit {
   
-  complete: boolean;
-  ttodoItems: TodoItem[];
-  
+  complete: boolean = this.route.snapshot.data['complete'];
+ 
   constructor(
     private todoDataService: TodoDataService,
     private route: ActivatedRoute
-  ) {
-  }
+  ) {  }
   
   ngOnInit() {
-    
     this.complete = this.route.snapshot.data['complete'];
   }
   
@@ -32,12 +28,10 @@ export class TodoItemsComponent implements OnInit {
   
   get todoItems() {
     return this.todoDataService.todoItems;
-    
   }
   
   toggleTodoItemComplete(id) {
     this.todoDataService.toggleTodoItemComplete(id);
-    //console.log(this.todoItems);
   }
 }
 
