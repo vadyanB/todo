@@ -26,4 +26,10 @@ export class TodoDataService {
       return item;
     });
   }
+  addTodoItem(newTodoItem) {
+    console.log('service', newTodoItem);
+    console.log(this.todoItems);
+    return this.todoItems.push(newTodoItem);
+  }
+  
 }

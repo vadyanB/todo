@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer.component';
-import { FilterTodoItems } from '../todo-items/filter-todo-items.pipe';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    
+    RouterModule,
   ],
   declarations: [
     FooterComponent,
-    FilterTodoItems
+  ],
+  exports: [
+    FooterComponent
   ]
 })
 export class FooterModule { }

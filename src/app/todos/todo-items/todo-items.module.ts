@@ -5,15 +5,19 @@ import { TodoItemsComponent } from './todo-items.component';
 import { FilterTodoItems } from './filter-todo-items.pipe';
 import { FormsModule } from '@angular/forms';
 
+
 @NgModule({
   imports: [
     CommonModule,
     TodoItemsRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   declarations: [
     TodoItemsComponent,
-    FilterTodoItems,
+    FilterTodoItems
+  ],
+  exports: [
+    TodoItemsComponent
   ]
 })
 export class TodoItemsModule {

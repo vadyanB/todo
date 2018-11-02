@@ -1,5 +1,5 @@
 export class TodoItem {
-  id: number;
+  id= Math.floor(Math.random() * (99 - 20) + 20);
   title = '';
   complete = false;
 }
