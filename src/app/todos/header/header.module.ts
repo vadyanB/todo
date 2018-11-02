@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
 import { FormsModule } from '@angular/forms';
 import { TodoItemsModule } from '../todo-items/todo-items.module';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     FormsModule,
     TodoItemsModule
   ],

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TodosRoutingModule } from './todos-routing.module';
 import { TodosComponent } from './todos.component';
 import { FooterModule } from './footer/footer.module';
 import { HeaderModule } from './header/header.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
+    SharedModule,
     TodosRoutingModule,
     FooterModule,
     HeaderModule
