@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+
 import { TodoItemsComponent } from './todo-items.component';
 
 const routes: Routes = [
@@ -10,12 +11,12 @@ const routes: Routes = [
   {
     path: 'completed',
     component: TodoItemsComponent,
-    data: { complete : true }
+    data: {complete: true}
   },
   {
     path: 'active',
     component: TodoItemsComponent,
-    data: { complete : false }
+    data: {complete: false}
   }
 ];
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TodoItemsRoutingModule { }
+export class TodoItemsRoutingModule {
+}
 
 

@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
-import { FooterComponent } from './footer.component';
 import { RouterModule } from '@angular/router';
+
 import { SharedModule } from '../../shared/shared.module';
+
+import { FooterComponent } from './footer.component';
 
 
 @NgModule({
@@ -16,4 +18,5 @@ import { SharedModule } from '../../shared/shared.module';
     FooterComponent
   ]
 })
-export class FooterModule { }
+export class FooterModule {
+}
