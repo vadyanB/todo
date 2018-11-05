@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { TODO_ITEMS } from '../mock/mock-todo-items';
 import { TodoItem } from '../models/todo-item';
 
@@ -7,29 +6,25 @@ import { TodoItem } from '../models/todo-item';
   providedIn: 'root'
 })
 export class TodoDataService {
-  
   todoItems: TodoItem[] = TODO_ITEMS;
   
   constructor() {
   }
   
   deleteByItemId(id) {
-    return this.todoItems = this.todoItems.filter(item => id !== item.id);
+    this.todoItems = this.todoItems.filter(item => id !== item.id);
   }
   
   toggleTodoItemComplete(id) {
-  
-    return this.todoItems = this.todoItems.map(item => {
+    this.todoItems = this.todoItems.map(item => {
       if (item.id === id) {
         item.complete = !item.complete;
       }
       return item;
     });
   }
+
   addTodoItem(newTodoItem) {
-    console.log('service', newTodoItem);
-    console.log(this.todoItems);
-    return this.todoItems.push(newTodoItem);
+     this.todoItems = [...this.todoItems, ...newTodoItem];
   }
-  
 }

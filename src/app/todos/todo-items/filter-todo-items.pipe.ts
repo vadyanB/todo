@@ -5,9 +5,7 @@ import { TodoItem } from '../../core/models/todo-item';
 
 export class FilterTodoItems implements PipeTransform {
   transform (arr: TodoItem[], complete: boolean): TodoItem[] {
-    
     return arr.filter(item =>
-    
     complete === undefined || complete === item.complete
     );
   }

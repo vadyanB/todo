@@ -5,7 +5,6 @@ import { FilterTodoItems } from './filter-todo-items.pipe';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 
-
 @NgModule({
   imports: [
     SharedModule,

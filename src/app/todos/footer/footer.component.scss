@@ -6,7 +6,6 @@
   border-top: 1px solid black;
 
   .container {
-    //padding: 0 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -16,7 +15,6 @@
   }
 
   &__index {
-
     font-size: 25px;
   }
 }

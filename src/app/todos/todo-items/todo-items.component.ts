@@ -8,7 +8,6 @@ import { TodoDataService } from '../../core/services/todo-data.service';
   styleUrls: ['./todo-items.component.scss']
 })
 
-
 export class TodoItemsComponent implements OnInit {
   
   complete: boolean = this.route.snapshot.data['complete'];
