@@ -34,6 +34,7 @@ export class TodoItemsComponent implements OnInit {
   toggleTodoItemComplete(id) {
     this.todoDataService.toggleTodoItemComplete(id);
   }
+
 }
 
 
