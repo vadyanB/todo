@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { TodoDataService } from '../../core/services/todo-data.service';
+import { TodoItem } from '../../core/models/todo-item';
+
 
 @Component({
   selector: 'app-all-items',
@@ -25,6 +26,8 @@ export class TodoItemsComponent implements OnInit {
 
   deleteTodoItem(id) {
     this.todoDataService.deleteByItemId(id);
+
+
   }
 
   get todoItems() {
@@ -34,7 +37,6 @@ export class TodoItemsComponent implements OnInit {
   toggleTodoItemComplete(id) {
     this.todoDataService.toggleTodoItemComplete(id);
   }
-
 }
 
 

@@ -9,7 +9,6 @@ import { TodoDataService } from '../../core/services/todo-data.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
   newTodoItem: TodoItem = new TodoItem();
 
   constructor(
@@ -21,7 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
   addTodoItem(newTodoItem) {
-    this.todoDataService.addTodoItem(newTodoItem);
+    this.todoDataService.addTodoItem(newTodoItem)
     this.newTodoItem = new TodoItem();
   }
 

@@ -1,23 +1,23 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { throwError } from 'rxjs';
+
 
 import { TodoItem } from '../models/todo-item';
-import { throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoDataService {
-  todoItemsUrl = 'http://localhost:3000/todo-items';
+  todoItemsUrl = 'http://localhost:3000/todo-items/';
   todoItems: TodoItem[];
   error: HttpErrorResponse;
+  todoItem: TodoItem
 
   constructor(private http: HttpClient) {
-    this.fetchTodoItems()
-    .subscribe((todoItems: TodoItem[]) =>
-        this.todoItems = [...todoItems],
-      error => this.error = error);
+
+    this.fetchTodoItems();
+
   }
 
   private handleError(error) {
@@ -34,31 +34,32 @@ export class TodoDataService {
     // return an observable with a user-facing error message
     return throwError(
       'Something bad happened; please try again later.');
-  };
+  }
 
-
-  deleteByItemId(id) {
-    this.todoItems = this.todoItems.filter(item => id !== item.id);
+  deleteByItemId(id: number) {
+    const url = `${this.todoItemsUrl}/${id}`;
+    this.http.delete(url)
+    .subscribe(() => this.todoItems = this.todoItems.filter(item => id !== item.id));
   }
 
   toggleTodoItemComplete(id) {
-    this.todoItems = this.todoItems.map(item => {
-      if (item.id === id) {
-        item.complete = !item.complete;
-      }
-      return item;
-    });
+
+    this.todoItem = this.todoItems.find(item => id === item.id);
+    this.todoItem.complete = !this.todoItem.complete;
+    console.log(this.todoItem);
+    return this.http.put<TodoItem>(`${this.todoItemsUrl}/${id}`, this.todoItem)
+    .subscribe();
   }
 
   addTodoItem(newTodoItem) {
-    return this.todoItems = [...this.todoItems, newTodoItem];
+    return this.http.post<TodoItem>(this.todoItemsUrl, newTodoItem)
+    .subscribe(() => this.todoItems = [...this.todoItems, newTodoItem]);
   }
 
   fetchTodoItems() {
     return this.http.get<TodoItem[]>(this.todoItemsUrl)
-    .pipe(
-      retry(3),
-      catchError(this.handleError)
-    );
+    .subscribe((todoItems: TodoItem[]) =>
+        this.todoItems = [...todoItems],
+      error => this.error = error);
   }
 }
