@@ -34,7 +34,7 @@ export class TodoDataService {
 
   deleteByItemId(id: number) {
 
-    this.http.delete(`/${id}`)
+    this.http.delete(`todo-items/${id}`)
     .pipe(
       catchError(this.handleError)
     )
@@ -45,7 +45,7 @@ export class TodoDataService {
 
   toggleTodoItemComplete(id) {
     const todoItem: TodoItem = this.todoItems.find(item => id === item.id);
-    this.http.put<TodoItem>(`/${id}`, {
+    this.http.put<TodoItem>(`todo-items/${id}`, {
       ...todoItem,
       complete: !todoItem.complete
     })
@@ -58,7 +58,7 @@ export class TodoDataService {
   }
 
   addTodoItem(newTodoItem) {
-    this.http.post<TodoItem>('', newTodoItem)
+    this.http.post<TodoItem>('todo-items', newTodoItem)
     .pipe(
       catchError(this.handleError)
     )
@@ -66,7 +66,7 @@ export class TodoDataService {
   }
 
   fetchTodoItems() {
-    this.http.get<TodoItem[]>('')
+    this.http.get<TodoItem[]>('todo-items')
     .pipe(
       catchError(this.handleError)
     )
