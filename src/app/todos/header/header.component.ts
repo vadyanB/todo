@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   }
 
   addTodoItem(newTodoItem) {
-    this.todoDataService.addTodoItem(newTodoItem)
+    this.todoDataService.addTodoItem(newTodoItem);
     this.newTodoItem = new TodoItem();
   }
 
