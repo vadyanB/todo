@@ -47,8 +47,7 @@ export class TodoDataService {
       catchError(this.handleError)
     )
     .subscribe((id) => {
-      console.log(id);
-      return this.todoItems = this.todoItems.filter((item) => id !== item.id);
+      this.todoItems = this.todoItems.filter((item) => id !== item.id);
     });
 
     this.toggleTodoItemComplete$
@@ -62,7 +61,7 @@ export class TodoDataService {
       catchError(this.handleError)
     )
     .subscribe((arr: TodoItem) => {
-      return this.todoItems = this.todoItems.map(item => item.id === arr.id ? arr : item);
+      this.todoItems = this.todoItems.map(item => item.id === arr.id ? arr : item);
     });
 
     this.fetchTodoItems();
