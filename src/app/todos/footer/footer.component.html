@@ -1,11 +1,12 @@
 <footer class="footer">
   <div class="container">
-    <div class="counter">{{(todoItems)?.length}} items left</div>
+    <div class="counter">{{(todoItems$ | async)?.length}} items left</div>
     <div class="footer__index">
-      <button routerLink="/completed">Completed</button>
-      <button routerLink="/active">Active</button>
-      <button routerLink="/">All</button>
+      <div class="footer__index">
+        <button routerLink="/completed">Completed</button>
+        <button routerLink="/active">Active</button>
+        <button routerLink="/">All</button>
+      </div>
     </div>
   </div>
 </footer>
-
