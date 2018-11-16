@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 import { TodoItem } from '../../core/models/todo-item';
 import { TodoDataService } from '../../core/services/todo-data.service';
+
 
 @Component({
   selector: 'app-all-items',
@@ -12,8 +14,6 @@ import { TodoDataService } from '../../core/services/todo-data.service';
 })
 
 export class TodoItemsComponent implements OnInit {
-
-  complete: boolean = this.route.snapshot.data['complete'];
   todoItems$: Observable<TodoItem[]>;
 
   constructor(
@@ -23,8 +23,15 @@ export class TodoItemsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.todoItems$ = this.todoDataService.todoItems$;
-    this.complete = this.route.snapshot.data['complete'];
+    this.todoItems$ = this.todoDataService.todoItems$
+    .pipe(
+      withLatestFrom(this.route.data),
+      map(([todoItems, data]) => {
+        return todoItems.filter(item =>
+          data.complete === undefined || data.complete === item.complete
+        );
+      })
+    );
   }
 
   deleteTodoItem(id) {

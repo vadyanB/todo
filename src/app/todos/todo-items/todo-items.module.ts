@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 
 import { SharedModule } from '../../shared/shared.module';
 
-import { FilterTodoItems } from './filter-todo-items.pipe';
 import { TodoItemsRoutingModule } from './todo-items-routing.module';
 import { TodoItemsComponent } from './todo-items.component';
 
@@ -14,8 +13,7 @@ import { TodoItemsComponent } from './todo-items.component';
     FormsModule,
   ],
   declarations: [
-    TodoItemsComponent,
-    FilterTodoItems
+    TodoItemsComponent
   ],
   exports: [
     TodoItemsComponent
