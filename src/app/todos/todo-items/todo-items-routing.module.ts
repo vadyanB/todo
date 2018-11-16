@@ -6,17 +6,17 @@ import { TodoItemsComponent } from './todo-items.component';
 const routes: Routes = [
   {
     path: '',
-    component: TodoItemsComponent
+    component: TodoItemsComponent,
   },
   {
     path: 'completed',
     component: TodoItemsComponent,
-    data: {complete: true}
+    data: {complete: true},
   },
   {
     path: 'active',
     component: TodoItemsComponent,
-    data: {complete: false}
+    data: {complete: false},
   }
 ];
 

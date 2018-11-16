@@ -73,7 +73,7 @@ export class TodoDataService {
     )
     .subscribe(this.todoItems$);
 
-    this.fetchTodoItems();
+    // this.fetchTodoItems();
   }
 
   fetchTodoItems() {
