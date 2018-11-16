@@ -24,17 +24,12 @@ export class TodoItemsComponent implements OnInit {
 
   ngOnInit() {
     this.todoItems$ = this.todoDataService.todoItems$;
-    console.log(this.todoItems$);
     this.complete = this.route.snapshot.data['complete'];
   }
 
   deleteTodoItem(id) {
     this.todoDataService.deleteByItemId(id);
   }
-
-  // get todoItems() {
-  //   return this.todoDataService.todoItems;
-  // }
 
   toggleTodoItemComplete(id) {
     this.todoDataService.toggleTodoItemComplete(id);

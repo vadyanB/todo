@@ -10,11 +10,12 @@ import { TodoItem } from '../models/todo-item';
 })
 export class TodoDataService {
   todoItems: TodoItem[];
-  private addTodoItem$ = new Subject();
-  private deleteByItemId$ = new Subject();
-  private toggleTodoItemComplete$ = new Subject();
-  private fetchTodoItems$ = new Subject();
+  addTodoItem$ = new Subject();
+  deleteByItemId$ = new Subject();
+  toggleTodoItemComplete$ = new Subject();
+  fetchTodoItems$ = new Subject();
   todoItems$: BehaviorSubject<TodoItem[]> = new BehaviorSubject([]);
+
 
   constructor(private http: HttpClient) {
 
@@ -24,7 +25,6 @@ export class TodoDataService {
         return this.http.get<TodoItem[]>(`todo-items`);
       }),
       catchError(this.handleError),
-      withLatestFrom(this.todoItems$),
       map((todoItems: TodoItem[]) => {
         return this.todoItems = [...todoItems];
       })
@@ -39,7 +39,7 @@ export class TodoDataService {
       catchError(this.handleError),
       withLatestFrom(this.todoItems$),
       map(([todoItem, todoItems]) => {
-        return todoItems.concat(todoItem);
+        return this.todoItems = todoItems.concat(todoItem);
       })
     )
     .subscribe(this.todoItems$);
@@ -51,8 +51,8 @@ export class TodoDataService {
       }),
       catchError(this.handleError),
       withLatestFrom(this.todoItems$),
-      map((id) => {
-        return this.todoItems = this.todoItems.filter(item => id = item.id);
+      map(([id, todoItems]) => {
+        return this.todoItems = todoItems.filter(item => id !== item.id);
       })
     )
     .subscribe(this.todoItems$);
@@ -67,8 +67,8 @@ export class TodoDataService {
       }),
       catchError(this.handleError),
       withLatestFrom(this.todoItems$),
-      map((arr: TodoItem) => {
-        return this.todoItems = this.todoItems.map(item => item.id === arr.id ? arr : item);
+      map(([todoItem, todoItems]) => {
+        return this.todoItems = todoItems.map(item => item.id === todoItem.id ? todoItem : item);
       })
     )
     .subscribe(this.todoItems$);

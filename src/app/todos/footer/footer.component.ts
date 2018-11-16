@@ -20,8 +20,4 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
     this.todoItems$ = this.todoDataService.todoItems$;
   }
-
-  get todoItems() {
-    return this.todoDataService.todoItems;
-  }
 }
