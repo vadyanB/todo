@@ -9,7 +9,6 @@ import { TodoItem } from '../models/todo-item';
   providedIn: 'root'
 })
 export class TodoDataService {
-  todoItems: TodoItem[];
   addTodoItem$ = new Subject();
   deleteByItemId$ = new Subject();
   toggleTodoItemComplete$ = new Subject();
@@ -26,7 +25,7 @@ export class TodoDataService {
       }),
       catchError(this.handleError),
       map((todoItems: TodoItem[]) => {
-        return this.todoItems = [...todoItems];
+        return [...todoItems];
       })
     )
     .subscribe(this.todoItems$);
@@ -39,7 +38,7 @@ export class TodoDataService {
       catchError(this.handleError),
       withLatestFrom(this.todoItems$),
       map(([todoItem, todoItems]) => {
-        return this.todoItems = todoItems.concat(todoItem);
+        return todoItems.concat(todoItem);
       })
     )
     .subscribe(this.todoItems$);
@@ -52,7 +51,7 @@ export class TodoDataService {
       catchError(this.handleError),
       withLatestFrom(this.todoItems$),
       map(([id, todoItems]) => {
-        return this.todoItems = todoItems.filter(item => id !== item.id);
+        return todoItems.filter(item => id !== item.id);
       })
     )
     .subscribe(this.todoItems$);
@@ -60,7 +59,7 @@ export class TodoDataService {
     this.toggleTodoItemComplete$
     .pipe(
       switchMap(id => {
-        const todoItem: TodoItem = this.todoItems.find(item => id === item.id);
+        const todoItem: TodoItem = this.todoItems$.value.find(item => id === item.id);
         return this.http.put<TodoItem>(
           `todo-items/${id}`,
           {...todoItem, complete: !todoItem.complete});
@@ -68,12 +67,10 @@ export class TodoDataService {
       catchError(this.handleError),
       withLatestFrom(this.todoItems$),
       map(([todoItem, todoItems]) => {
-        return this.todoItems = todoItems.map(item => item.id === todoItem.id ? todoItem : item);
+        return todoItems.map(item => item.id === todoItem.id ? todoItem : item);
       })
     )
     .subscribe(this.todoItems$);
-
-    // this.fetchTodoItems();
   }
 
   fetchTodoItems() {
@@ -94,6 +91,7 @@ export class TodoDataService {
 
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
+
       // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error.message);
     } else {
