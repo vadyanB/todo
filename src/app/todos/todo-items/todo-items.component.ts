@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { combineLatest, map } from 'rxjs/operators';
+import { combineLatest, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { TodoItem } from '../../core/models/todo-item';
 import { TodoDataService } from '../../core/services/todo-data.service';
@@ -24,9 +24,8 @@ export class TodoItemsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.todoItems$ = this.todoDataService.todoItems$
+    this.todoItems$ = combineLatest( this.todoDataService.todoItems$, this.route.data)
     .pipe(
-      combineLatest(this.route.data),
       map(([todoItems, data]) => {
         return todoItems.filter(item =>
           data.complete === undefined || data.complete === item.complete
