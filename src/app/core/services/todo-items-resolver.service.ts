@@ -3,7 +3,6 @@ import { Resolve } from '@angular/router';
 
 import { TodoDataService } from './todo-data.service';
 
-
 @Injectable({
   providedIn: 'root'
 })

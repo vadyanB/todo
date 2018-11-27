@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { TodoItem } from '../../core/models/todo-item';
 import { TodoDataService } from '../../core/services/todo-data.service';
 
 @Component({
@@ -10,7 +9,7 @@ import { TodoDataService } from '../../core/services/todo-data.service';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
-  todoItems$: Observable<TodoItem[]>;
+  todoItemsCount$: Observable<number>;
 
   constructor(
     private todoDataService: TodoDataService,
@@ -18,6 +17,6 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.todoItems$ = this.todoDataService.todoItems$;
+    this.todoItemsCount$ = this.todoDataService.todoItemsCount$;
   }
 }

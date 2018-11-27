@@ -1,6 +1,6 @@
 <footer class="footer">
   <div class="container">
-    <div class="counter">{{(todoItems$ | async)?.length}} items left</div>
+    <div class="counter">{{todoItemsCount$ | async}} items left</div>
     <div class="footer__index">
       <div class="footer__index">
         <button routerLink="/completed">Completed</button>
